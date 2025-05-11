@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+
+        .registration-form {
+            width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #007BFF;
+        }
+
+        .registration-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .registration-form input[type="text"],
+        .registration-form input[type="number"],
+        .registration-form input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .registration-form input[type="submit"] {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .registration-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-form">
+        <h2>Employee Registration</h2>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <div class="error" id="nameError"></div>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age">
+            <div class="error" id="ageError"></div>
+
+            <label for="salary">Salary</label>
+            <input type="text" id="salary" name="salary">
+            <div class="error" id="salaryError"></div>
+
+            <label for="role">Role</label>
+            <input type="text" id="role" name="role">
+            <div class="error" id="roleError"></div>
+
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company">
+            <div class="error" id="companyError"></div>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+            <div class="error" id="phoneError"></div>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address">
+            <div class="error" id="addressError"></div>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Clear all errors
+            document.querySelectorAll('.error').forEach(e => e.innerText = '');
+
+            const name = document.getElementById("name").value.trim();
+            const age = parseInt(document.getElementById("age").value);
+            const salary = document.getElementById("salary").value.trim();
+            const role = document.getElementById("role").value.trim();
+            const company = document.getElementById("company").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const address = document.getElementById("address").value.trim();
+
+            // Name: not empty, letters only
+            if (name === "" || !/^[A-Za-z\s]+$/.test(name)) {
+                document.getElementById("nameError").innerText = "Please enter a valid name (letters only).";
+                isValid = false;
+            }
+
+            // Age: must be between 18 and 65
+            if (isNaN(age) || age < 18 || age > 65) {
+                document.getElementById("ageError").innerText = "Age must be between 18 and 65.";
+                isValid = false;
+            }
+
+            // Salary: must be a valid number
+            if (!/^\d{4,9}$/.test(salary.replace(/,/g, ''))) {
+                document.getElementById("salaryError").innerText = "Enter a valid salary (numeric only).";
+                isValid = false;
+            }
+
+            // Role: not empty
+            if (role === "") {
+                document.getElementById("roleError").innerText = "Role cannot be empty.";
+                isValid = false;
+            }
+
+            // Company: not empty
+            if (company === "") {
+                document.getElementById("companyError").innerText = "Company name is required.";
+                isValid = false;
+            }
+
+            // Phone: must be 10-digit number
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById("phoneError").innerText = "Enter a valid 10-digit phone number.";
+                isValid = false;
+            }
+
+            // Address: not empty
+            if (address === "") {
+                document.getElementById("addressError").innerText = "Address is required.";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
