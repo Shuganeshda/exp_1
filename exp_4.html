@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #007BFF;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .navbar a, .dropdown button {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover button {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button>Pages ▾</button>
+            <div class="dropdown-content">
+                <a href="Contact.html">Contact</a>
+                <a href="About.html">About</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employee Table -->
+    <table border="1">
+        <caption>Employee Management System</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>Role</th>
+                <th>Company Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Raj</td>
+                <td>30</td>
+                <td>60,000</td>
+                <td>Developer</td>
+                <td>TechCorp</td>
+                <td>1234567890</td>
+                <td>123 Street,chennai</td>
+            </tr>
+            <tr>
+                <td>Kumar</td>
+                <td>45</td>
+                <td>$80,000</td>
+                <td>Manager</td>
+                <td>BizGroup</td>
+                <td>9876543210</td>
+                <td>456 Street,Theni</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
